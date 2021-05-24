@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/4c755a5ad7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="portfolio.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script src="portfolio.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <title>portfolio</title>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="header_searchbox">
+                <a href="#">
+                    <img class="logo" src="images/logo.png" alt="로고 이미지">
+                </a>
+                <input type="search" class="header_search" placeholder="검색 하고싶은 게임을 입력하세요">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#" id="search_right2">로그인</a>
+                <a href="#" id="search_right1">회원가입</a>
+            </div>
+
+            <div id="flex_searchbox">
+                <a href="#">
+                    <img class="logo" src="images/logo.png" alt="로고 이미지">
+                </a>
+                <input type="search" class="header_search" placeholder="검색 하고싶은 게임을 입력하세요">
+                <a href="#"><i class="fas fa-search"></i></a>
+
+                <div id="flexsearch_icon">
+                    <div id="search_flexbtn1">
+                        <a href="#"><i class="fas fa-user"></i></a>
+                        <a href="#"><i class="fas fa-sort-down"></i></a>
+                    </div>
+                    <div id="search_flexbtn2">
+                        <div>
+                            <a>로그인</a><br>
+                            <a>회원가입</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="header_img">
+                <a href="#">
+                    <img src="images/banner.jpg" alt="배너이미지">
+                </a>
+
+                <div id="portfolio_memo">
+                    <p>
+                        창작 포트폴리오이며, 주제는 스팀 사이트를 좀 넓게 다시 만들어 봤습니다. 다 HTML로 만들고 CSS로<br>
+                        틀을 잡고 jquery로 작동하게 만들었습니다. 코드는 100% 다 본인이 짰으며 플러그인 쓴건 없습니다. <br>
+                        이 자작 사이트의 주요 기능을 설명해보겠습니다. <br>
+                        1. 맨 위에 해더 메뉴바가 있으며, jquery로 고정높이에 도달하면 fixed메뉴가 미끄러지듯이 나타나게 했습니다. <br>
+                        2. 왼쪽 aside엔 fixed한 세로 메뉴바를 구현했으며, 위치값은 CSS의 position으로 잡았으며 세련되 보이게 <br>
+                        jquery로 easeInOutBack애니메이션을 넣었고 메뉴바 아이콘도 돌아가게 만들었습니다. 메뉴가 열리는 동시에 <br>
+                        스크롤을 고정시키며 메뉴바 빼고 화면이 검은색으로 덮이게 만들었습니다. <br>
+                        3. 추천게임 슬라이더는 setInterval를 통해 자동으로 돌아가게 만들었고 마우스를 hover하면 <br>
+                        clearInterval이 적용됩니다. 동시에 슬라이더 오른쪽에 간략소개창이 fadeIn으로 뜹니다. 간략소개창 <br>
+                        안에는 자동으로 넘어가는 그림세트가 있으며, 메인슬라이더의 마우스 hover를 풀면 fadeOut 됩니다. <br>
+                        메인슬라이더의 오른쪽 그림을 호버하면 메인슬라이더가 같은 그림으로 바뀌게 만들었습니다. 슬라이더<br>
+                        양쪽은 좌우 버튼으로 다음밑쪽의 버튼은 슬라이더가 넘어가면 커지는 애니메이션이 동작하고 누르면 해당페이지로 <br>
+                        넘어가게 만들었습니다. <br>
+                        4. 할인게임, 커뮤니티 추천게임 슬라이더는 setInterval이 없으며 모든 슬라이더는 태두리에 슬라더 박스를 <br>
+                        만들고 박스에 position: relative값을 주고 슬라이더를 다 absolute로 박스안에 고정시켜 display: none에서 <br>
+                        block으로 jquery의 addClass와 removeClass로 설정 한 것입니다. <br>
+                        5. 커뮤니티 추천게임 슬라이더는 처음엔 그림파일이 표시되게 하다가 마우스로 hover하면 그림이 display:none <br>
+                        이 되면서 뒤에 슬라이더가 자동 플레이되게 jquery로 구현 하였습니다. <br>
+                        6. 장르별 게임메뉴는 CSS로 버튼박스를 position: relative를 주고 밑에 5개의 페이지를 absolute로 겹쳐서 <br>
+                        jquery로 몇 번째 버튼을 누르면 몇번째 페이지가 display: block으로 뜨게 해놓고 다른 페이지는 none상태로 <br>
+                        안보이게 해놓았습니다.
+                    </p>
+                </div>
+            </div>
+        </header>
+<!-- -----------------------------section 시작--------------------- -->
+        <section>
+<!-- --------------------------추천게임 슬라이더--------------------- -->
+
+            <h1 class="section_title">추천게임</h1>
+            <a href="#" class="more">더 보기</a>
+            <div class="line"></div>
+            <div id="header_slider">
+                <div class="slider_btn1">
+                    <a href="#" class="left"><i class="fas fa-chevron-left"></i></a>
+                    <a href="#" class="right"><i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="slider_btn2">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+
+                <div id="header_sliderbox">
+                    <div class="header_slider">
+                        <div class="header_imgbox">
+                            <img src="images/banner_slider/banner1.jpg" alt="배너이미지1">
+                            <img src="images/banner_slider/banner1_1.jpg" alt="배너이미지1_1">
+                            <img src="images/banner_slider/banner1_2.jpg" alt="배너이미지1_2">
+                            <img src="images/banner_slider/banner1_3.jpg" alt="배너이미지1_3">
+                            <img src="images/banner_slider/banner1_4.jpg" alt="배너이미지1_4">
+                        </div>
+                        <div class="header_contbox">
+                            <h2>Black Mesa</h2>
+                            <div class="header_smallbox">
+                                <img src="images/banner_slider/banner1_1.jpg" alt="배너이미지1_1">
+                                <img src="images/banner_slider/banner1_2.jpg" alt="배너이미지1_2">
+                                <img src="images/banner_slider/banner1_3.jpg" alt="배너이미지1_3">
+                                <img src="images/banner_slider/banner1_4.jpg" alt="배너이미지1_4">
+                            </div>
+                            <p><span>-50%</span> <s>&#8361;20,500</s> &#8361;10,250</p>
+                        </div>
+
+                        <div class="smallcontbox">
+                            <h3>Black Mesa</h3>
+                            <p>출시: 2020년 3월 6일</p>
+                            <div class="smallimgbox">
+                                <img src="images/banner_slider/banner1_1.jpg" alt="배너이미지1_1">
+                                <img src="images/banner_slider/banner1_2.jpg" alt="배너이미지1_2">
+                                <img src="images/banner_slider/banner1_3.jpg" alt="배너이미지1_3">
+                                <img src="images/banner_slider/banner1_4.jpg" alt="배너이미지1_4">
+                            </div>
+                            <div class="user">
+                                <p>전반적 사용자 평가: <span>압도적으로 긍정적</span>(평가 55,912개)</p>
+                            </div>
+                            <p class="small_tag">
+                                사용자 태그: <span>1인칭 슈팅</span><span>리메이크</span><span>액션</span><span>공상과학</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="header_slider">
+                        <div class="header_imgbox">
+                            <img src="images/banner_slider/banner2.jpg" alt="배너이미지2">
+                            <img src="images/banner_slider/banner2_1.jpg" alt="배너이미지2_1">
+                            <img src="images/banner_slider/banner2_2.jpg" alt="배너이미지2_2">
+                            <img src="images/banner_slider/banner2_3.jpg" alt="배너이미지2_3">
+                            <img src="images/banner_slider/banner2_4.jpg" alt="배너이미지2_4">
+                        </div>
+                        <div class="header_contbox">
+                            <h2>DEATH STRANDING</h2>
+                            <div class="header_smallbox">
+                                <img src="images/banner_slider/banner2_1.jpg" alt="배너이미지2_1">
+                                <img src="images/banner_slider/banner2_2.jpg" alt="배너이미지2_2">
+                                <img src="images/banner_slider/banner2_3.jpg" alt="배너이미지2_3">
+                                <img src="images/banner_slider/banner2_4.jpg" alt="배너이미지2_4">
+                            </div>
+                            <p><span>-60%</span><s>&#8361;64,800</s>&#8361;25,920</p>
+                        </div>
+
+                        <div class="smallcontbox">
+                            <h3>DEATH STRANDING</h3>
+                            <p>출시: 2020년 7월 14일</p>
+                            <div class="smallimgbox">
+                                <img src="images/banner_slider/banner2_1.jpg" alt="배너이미지2_1">
+                                <img src="images/banner_slider/banner2_2.jpg" alt="배너이미지2_2">
+                                <img src="images/banner_slider/banner2_3.jpg" alt="배너이미지2_3">
+                                <img src="images/banner_slider/banner2_4.jpg" alt="배너이미지2_4">
+                            </div>
+                            <div class="user">
+                                <p>전반적 사용자 평가: <span>매우 긍정적</span>(평가 31,792개)</p>
+                            </div>
+                            <p class="small_tag">
+                                사용자 태그: <span>걷는 시뮬레이션</span><span>오픈월드</span><span>풍부한 스토리</span><span>3인칭</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="header_slider">
+                        <div class="header_imgbox">
+                            <img src="images/banner_slider/banner3.jpg" alt="배너이미지3">
+                            <img src="images/banner_slider/banner3_1.jpg" alt="배너이미지3_1">
+                            <img src="images/banner_slider/banner3_2.jpg" alt="배너이미지3_2">
+                            <img src="images/banner_slider/banner3_3.jpg" alt="배너이미지3_3">
+                            <img src="images/banner_slider/banner3_4.jpg" alt="배너이미지3_4">
+                        </div>
+                        <div class="header_contbox">
+                            <h2>PLAYERUNKNOWN'S BATTLEGROUNDS</h2>
+                            <div class="header_smallbox">
+                                <img src="images/banner_slider/banner3_1.jpg" alt="배너이미지3_1">
+                                <img src="images/banner_slider/banner3_2.jpg" alt="배너이미지3_2">
+                                <img src="images/banner_slider/banner3_3.jpg" alt="배너이미지3_3">
+                                <img src="images/banner_slider/banner3_4.jpg" alt="배너이미지3_4">
+                            </div>
+                            <p><span>-50%</span><s>&#8361;32,000</s>&#8361;16,000</p>
+                        </div>
+
+                        <div class="smallcontbox">
+                            <h3>PLAYERUNKNOWN'S BATTLEGROUNDS</h3>
+                            <p>출시: 2017년 12월 21일</p>
+                            <div class="smallimgbox">
+                                <img src="images/banner_slider/banner3_1.jpg" alt="배너이미지3_1">
+                                <img src="images/banner_slider/banner3_2.jpg" alt="배너이미지3_2">
+                                <img src="images/banner_slider/banner3_3.jpg" alt="배너이미지3_3">
+                                <img src="images/banner_slider/banner3_4.jpg" alt="배너이미지3_4">
+                            </div>
+                            <div class="user">
+                                <p>전반적 사용자 평가: <span>복합적</span>(평가 1,423,282개)</p>
+                            </div>
+                            <p class="small_tag">
+                                사용자 태그: <span>생존</span><span>슈팅</span><span>멀티플레이어</span><span>배틀 로얄</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="header_slider">
+                        <div class="header_imgbox">
+                            <img src="images/banner_slider/banner4.jpg" alt="배너이미지4">
+                            <img src="images/banner_slider/banner4_1.jpg" alt="배너이미지4_1">
+                            <img src="images/banner_slider/banner4_2.jpg" alt="배너이미지4_2">
+                            <img src="images/banner_slider/banner4_3.jpg" alt="배너이미지4_3">
+                            <img src="images/banner_slider/banner4_4.jpg" alt="배너이미지4_4">
+                        </div>
+                        <div class="header_contbox">
+                            <h2>EA SPORTS™ FIFA 21</h2>
+                            <div class="header_smallbox">
+                                <img src="images/banner_slider/banner4_1.jpg" alt="배너이미지4_1">
+                                <img src="images/banner_slider/banner4_2.jpg" alt="배너이미지4_2">
+                                <img src="images/banner_slider/banner4_3.jpg" alt="배너이미지4_3">
+                                <img src="images/banner_slider/banner4_4.jpg" alt="배너이미지4_4">
+                            </div>
+                            <p><span>-67%</span><s>&#8361;66,000</s>&#8361;21,780</p>
+                        </div>
+
+                        <div class="smallcontbox">
+                            <h3>EA SPORTS™ FIFA 21</h3>
+                            <p>출시: 2020년 10월 9일</p>
+                            <div class="smallimgbox">
+                                <img src="images/banner_slider/banner4_1.jpg" alt="배너이미지4_1">
+                                <img src="images/banner_slider/banner4_2.jpg" alt="배너이미지4_2">
+                                <img src="images/banner_slider/banner4_3.jpg" alt="배너이미지4_3">
+                                <img src="images/banner_slider/banner4_4.jpg" alt="배너이미지4_4">
+                            </div>
+                            <div class="user">
+                                <p>전반적 사용자 평가: <span>대체로 긍정적</span>(평가 22,640개)</p>
+                            </div>
+                            <p class="small_tag">
+                                사용자 태그: <span>스포츠</span><span>축구</span><span>PVP</span><span>경쟁</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="header_slider">
+                        <div class="header_imgbox">
+                            <img src="images/banner_slider/banner5.jpg" alt="배너이미지5">
+                            <img src="images/banner_slider/banner5_1.jpg" alt="배너이미지5_1">
+                            <img src="images/banner_slider/banner5_2.jpg" alt="배너이미지5_2">
+                            <img src="images/banner_slider/banner5_3.jpg" alt="배너이미지5_3">
+                            <img src="images/banner_slider/banner5_4.jpg" alt="배너이미지5_4">
+                        </div>
+                        <div class="header_contbox">
+                            <h2>Dying Light</h2>
+                            <div class="header_smallbox">
+                                <img src="images/banner_slider/banner5_1.jpg" alt="배너이미지5_1">
+                                <img src="images/banner_slider/banner5_2.jpg" alt="배너이미지5_2">
+                                <img src="images/banner_slider/banner5_3.jpg" alt="배너이미지5_3">
+                                <img src="images/banner_slider/banner5_4.jpg" alt="배너이미지5_4">
+                            </div>
+                            <p><span>-66%</span><s>&#8361;43,000</s>&#8361;14,620</p>
+                        </div>
+
+                        <div class="smallcontbox">
+                            <h3>Dying Light</h3>
+                            <p>출시: 2020년 3월 6일</p>
+                            <div class="smallimgbox">
+                                <img src="images/banner_slider/banner5_1.jpg" alt="배너이미지5_1">
+                                <img src="images/banner_slider/banner5_2.jpg" alt="배너이미지5_2">
+                                <img src="images/banner_slider/banner5_3.jpg" alt="배너이미지5_3">
+                                <img src="images/banner_slider/banner5_4.jpg" alt="배너이미지5_4">
+                            </div>
+                            <div class="user">
+                                <p>전반적 사용자 평가: <span>압도적으로 긍정적</span>(평가 174,038개)</p>
+                            </div>
+                            <p class="small_tag">
+                                사용자 태그: <span>좀비</span><span>생존 공포</span><span>온라인 협동</span><span>오픈월드</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="header_slider">
+                        <div class="header_imgbox">
+                            <img src="images/banner_slider/banner6.jpg" alt="배너이미지6">
+                            <img src="images/banner_slider/banner6_1.jpg" alt="배너이미지6_1">
+                            <img src="images/banner_slider/banner6_2.jpg" alt="배너이미지6_2">
+                            <img src="images/banner_slider/banner6_3.jpg" alt="배너이미지6_3">
+                            <img src="images/banner_slider/banner6_4.jpg" alt="배너이미지6_4">
+                        </div>
+                        <div class="header_contbox">
+                            <h2>Titanfall® 2</h2>
+                            <div class="header_smallbox">
+                                <img src="images/banner_slider/banner6_1.jpg" alt="배너이미지6_1">
+                                <img src="images/banner_slider/banner6_2.jpg" alt="배너이미지6_2">
+                                <img src="images/banner_slider/banner6_3.jpg" alt="배너이미지6_3">
+                                <img src="images/banner_slider/banner6_4.jpg" alt="배너이미지6_4">
+                            </div>
+                            <p>&#8361;33,000</p>
+                        </div>
+
+                        <div class="smallcontbox">
+                            <h3>Titanfall® 2</h3>
+                            <p>출시: 2016년 10월 28일</p>
+                            <div class="smallimgbox">
+                                <img src="images/banner_slider/banner6_1.jpg" alt="배너이미지6_1">
+                                <img src="images/banner_slider/banner6_2.jpg" alt="배너이미지6_2">
+                                <img src="images/banner_slider/banner6_3.jpg" alt="배너이미지6_3">
+                                <img src="images/banner_slider/banner6_4.jpg" alt="배너이미지6_4">
+                            </div>
+                            <div class="user">
+                                <p>전반적 사용자 평가: <span>압도적으로 긍정적</span>(평가 52,714개)</p>
+                            </div>
+                            <p class="small_tag">
+                                사용자 태그: <span>1인칭 슈팅</span><span>멀티플레이</span><span>액션</span><span>매크</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- -------------------------------특가 할인------------------------- -->
+
+            <div id="header_slider2">
+                <ul>
+                    <li>
+                        <h1 class="section_title">할인중인 게임</h1>
+                    </li>
+                    <li>
+                        <a href="#" class="more">더 보기</a>
+                    </li>
+                    <li>
+                        <div class="line"></div>
+                    </li>
+                    <li id="slider2_background">
+                        <ul>
+                            <li id="header_sliderbox2">
+                                <ul>
+                                    <div class="slider_btn1">
+                                        <a href="#" class="left"><i class="fas fa-chevron-left"></i></a>
+                                        <a href="#" class="right"><i class="fas fa-chevron-right"></i></a>
+                                    </div>
+                                    <div class="slider_btn2">
+                                        <a href="#"></a>
+                                        <a href="#"></a>
+                                        <a href="#"></a>
+                                    </div>
+<!-- ------------------------------첫페이지--------------------------------- -->
+                                    <li class="header_slider2" id="slider2_page1">
+                                        <div class="slider_big slider2_big_page1">
+                                            <div class="big_up" id="big_up1">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner1.jpg" alt="추천게임이미지1">
+                                                </a>
+                                            </div>
+                                            <div class="big_down">
+                                                <h3>
+                                                    주말특가
+                                                </h3>
+                                                <p class="big_word">
+                                                    할인혜택은 2021년 5월 4일 오전 2시 00분에 종료됩니다.
+                                                </p>
+                                                <div>
+                                                    <p class="big_cost1">
+                                                        -20%
+                                                    </p>
+                                                    <p class="big_cost2">
+                                                        <s>&#8361;45,000</s>&#8361;36,000
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    GTFO
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2019년 12월 10일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner1_1.jpg" alt="추천게임이미지1_1">
+                                                    <img src="images/banner_slider2/banner1_2.jpg" alt="추천게임이미지1_2">
+                                                    <img src="images/banner_slider2/banner1_3.jpg" alt="추천게임이미지1_3">
+                                                    <img src="images/banner_slider2/banner1_4.jpg" alt="추천게임이미지1_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 18,120개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>앞서 해보기</span><span>온라인 활동</span><span>공포</span><span>멀티플레이</span>
+                                                </p>
+                                            </div>
+                                        </div>
+        
+                                        <div class="slider_big slider2_big_page1">
+                                            <div class="big_up" id="big_up2">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner2.jpg" alt="추천게임이미지2">
+                                                </a>
+                                            </div>
+                                            <div class="big_down">
+                                                <h3>
+                                                    주말특가
+                                                </h3>
+                                                <p class="big_word">
+                                                    할인혜택은 2021년 5월 4일 오전 2시 00분에 종료됩니다.
+                                                </p>
+                                                <div>
+                                                    <p class="big_cost1">
+                                                        -15%
+                                                    </p>
+                                                    <p class="big_cost2">
+                                                        <s>&#8361;23,500</s>
+                                                        &#8361;19,975
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    Euro Truck Simulator 2
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2012년 10월 18일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner2_1.jpg" alt="추천게임이미지2_1">
+                                                    <img src="images/banner_slider2/banner2_2.jpg" alt="추천게임이미지2_2">
+                                                    <img src="images/banner_slider2/banner2_3.jpg" alt="추천게임이미지2_3">
+                                                    <img src="images/banner_slider2/banner2_4.jpg" alt="추천게임이미지2_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>압도적으로 긍정적 </span> (평가 18,120개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>앞서 해보기</span><span>온라인 활동</span><span>공포</span><span>멀티플레이</span>
+                                                </p>
+                                            </div>
+        
+                                        </div>
+        
+                                        <div class="slider_small slider2_small_page1">
+                                            <div class="small_up" id="small_up1">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner3.jpg" alt="추천게임이미지3">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <P class="small_word">
+                                                    오늘의 할인!
+                                                </P>
+                                                <div>
+                                                    <p class="small_cost1">-80%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;8,500</s>
+                                                        &#8361;1,700
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    REVENTURE
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2019년 6월 5일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner3_1.jpg" alt="추천게임이미지3_1">
+                                                    <img src="images/banner_slider2/banner3_2.jpg" alt="추천게임이미지3_2">
+                                                    <img src="images/banner_slider2/banner3_3.jpg" alt="추천게임이미지3_3">
+                                                    <img src="images/banner_slider2/banner3_4.jpg" alt="추천게임이미지3_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>압도적으로 긍정적 </span> (평가 4,608개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>어드벤처</span><span>인디</span><span>픽셀그래픽</span><span>코미디</span>
+                                                </p>
+                                            </div>
+                                        </div>
+        
+                                        <div class="slider_small slider2_small_page1">
+                                            <div class="small_up" id="small_up2">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner4.jpg" alt="추천게임이미지4">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <div>
+                                                    <p class="small_cost1">-85%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;43,800</s>
+                                                        &#8361;6,570
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    TEKKEN 7
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2017년 6월 2일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner4_1.jpg" alt="추천게임이미지4_1">
+                                                    <img src="images/banner_slider2/banner4_2.jpg" alt="추천게임이미지4_2">
+                                                    <img src="images/banner_slider2/banner4_3.jpg" alt="추천게임이미지4_3">
+                                                    <img src="images/banner_slider2/banner4_4.jpg" alt="추천게임이미지4_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 32,121개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>파이터</span><span>액션</span><span>멀티플레이</span><span>아케이드</span>
+                                                </p>
+                                            </div>
+                                        </div>     
+                                    </li>
+<!-- ------------------------------------두번째 페이지------------------------------------- -->
+                                    <li class=header_slider2 id="slider2_page2">
+                                        <div class="slider_big slider2_big_page2">
+                                            <div class="big_up" id="big_up3">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner5.jpg" alt="추천게임이미지5">
+                                                </a>
+                                            </div>
+                                            <div class="big_down">
+                                                <h3>
+                                                    주말특가
+                                                </h3>
+                                                <p class="big_word">
+                                                    할인혜택은 2021년 5월 4일 오전 2시 00분에 종료됩니다.
+                                                </p>
+                                                <div>
+                                                    <p class="big_cost1">
+                                                        -67%
+                                                    </p>
+                                                    <p class="big_cost2">
+                                                        <s>&#8361;31,000</s>&#8361;10,230
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    The Long Dark
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2017년 8월 1일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner5_1.jpg" alt="추천게임이미지5_1">
+                                                    <img src="images/banner_slider2/banner5_2.jpg" alt="추천게임이미지5_2">
+                                                    <img src="images/banner_slider2/banner5_3.jpg" alt="추천게임이미지5_3">
+                                                    <img src="images/banner_slider2/banner5_4.jpg" alt="추천게임이미지5_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 68,431개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>오픈월드 생존 전략</span><span>생존</span><span>탐험</span><span>솔로플레이</span>
+                                                </p>
+                                            </div>
+                                        </div>
+        
+                                        <div class="slider_big slider2_big_page2">
+                                            <div class="big_up" id="big_up4">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner6.jpg" alt="추천게임이미지6">
+                                                </a>
+                                            </div>
+                                            <div class="big_down">
+                                                <h3>
+                                                    주말특가
+                                                </h3>
+                                                <p class="big_word">
+                                                    할인혜택은 2021년 5월 4일 오전 2시 00분에 종료됩니다.
+                                                </p>
+                                                <div>
+                                                    <p class="big_cost1">
+                                                        -50%
+                                                    </p>
+                                                    <p class="big_cost2">
+                                                        <s>&#8361;44,800</s>
+                                                        &#8361;22,400
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    NieR:Automata™
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2012년 10월 18일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner6_1.jpg" alt="추천게임이미지6_1">
+                                                    <img src="images/banner_slider2/banner6_2.jpg" alt="추천게임이미지6_2">
+                                                    <img src="images/banner_slider2/banner6_3.jpg" alt="추천게임이미지6_3">
+                                                    <img src="images/banner_slider2/banner6_4.jpg" alt="추천게임이미지6_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 62,204개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>웅장한 사운드팩</span><span>풍부한 스토리</span><span>여주인공</span><span>액션</span>
+                                                </p>
+                                            </div>
+        
+                                        </div>
+        
+                                        <div class="slider_small slider2_small_page2">
+                                            <div class="small_up" id="small_up3">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner7.jpg" alt="추천게임이미지7">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <P class="small_word">
+                                                    오늘의 할인!
+                                                </P>
+                                                <div>
+                                                    <p class="small_cost1">-50%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;32,800</s>
+                                                        &#8361;16,400
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    Little Nightmare II
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2021년 2월 11일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner7_1.jpg" alt="추천게임이미지7_1">
+                                                    <img src="images/banner_slider2/banner7_2.jpg" alt="추천게임이미지7_2">
+                                                    <img src="images/banner_slider2/banner7_3.jpg" alt="추천게임이미지7_3">
+                                                    <img src="images/banner_slider2/banner7_4.jpg" alt="추천게임이미지7_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>압도적으로 긍정적 </span> (평가 8,736개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>공포</span><span>어드벤처</span><span>어두운</span><span>퍼즐</span>
+                                                </p>
+                                            </div>
+                                        </div>
+        
+                                        <div class="slider_small slider2_small_page2">
+                                            <div class="small_up" id="small_up4">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner8.jpg" alt="추천게임이미지8">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <div>
+                                                    <p class="small_cost1">-50%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;49,800</s>
+                                                        &#8361;24,900
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    DARK SOULS™ III
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2016년 4월 12일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner8_1.jpg" alt="추천게임이미지8_1">
+                                                    <img src="images/banner_slider2/banner8_2.jpg" alt="추천게임이미지8_2">
+                                                    <img src="images/banner_slider2/banner8_3.jpg" alt="추천게임이미지8_3">
+                                                    <img src="images/banner_slider2/banner8_4.jpg" alt="추천게임이미지8_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 169,957개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>소울스타일</span><span>다크 판타지</span><span>어려움</span><span>롤플레잉</span>
+                                                </p>
+                                            </div>
+                                        </div> 
+                                    </li>
+<!-- ------------------------------------세번째 페이지------------------------------------ -->
+                                    <li class="header_slider2" id="slider2_page3">
+                                        <div class="slider_small slider2_small_page3">
+                                            <div class="small_up" id="small_up5">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner9.jpg" alt="추천게임이미지9">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <div>
+                                                    <p class="small_cost1">-25%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;45,000</s>
+                                                        &#8361;33,750
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    MAFIA DEFINITIVE EDITION
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2020년 9월 25일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner9_1.jpg" alt="추천게임이미지9_1">
+                                                    <img src="images/banner_slider2/banner9_2.jpg" alt="추천게임이미지9_2">
+                                                    <img src="images/banner_slider2/banner9_3.jpg" alt="추천게임이미지9_3">
+                                                    <img src="images/banner_slider2/banner9_4.jpg" alt="추천게임이미지9_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 20,798개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>액션</span><span>범죄</span><span>어드벤처</span><span>오픈월드</span>
+                                                </p>
+                                            </div>
+                                        </div> 
+
+                                        <div class="slider_small slider2_small_page3">
+                                            <div class="small_up" id="small_up6">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner10.jpg" alt="추천게임이미지10">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <div>
+                                                    <p class="small_cost1">-50%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;59,400</s>
+                                                        &#8361;29,700
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    FINAL FANTASY XV
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2018년 3월 7일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner10_1.jpg" alt="추천게임이미지10_1">
+                                                    <img src="images/banner_slider2/banner10_2.jpg" alt="추천게임이미지10_2">
+                                                    <img src="images/banner_slider2/banner10_3.jpg" alt="추천게임이미지10_3">
+                                                    <img src="images/banner_slider2/banner10_4.jpg" alt="추천게임이미지10_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 26,065개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>롤플레잉</span><span>오픈월드</span><span>일본 롤플레잉</span><span>판타지</span>
+                                                </p>
+                                            </div>
+                                        </div> 
+
+                                        <div class="slider_small slider2_small_page3">
+                                            <div class="small_up" id="small_up7">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner11.jpg" alt="추천게임이미지11">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <div>
+                                                    <p class="small_cost1">-50%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;29,000</s>
+                                                        &#8361;12,500
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    BIOHAZARD 7 resident evil
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2017년 1월 26일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner11_1.jpg" alt="추천게임이미지11_1">
+                                                    <img src="images/banner_slider2/banner11_2.jpg" alt="추천게임이미지11_2">
+                                                    <img src="images/banner_slider2/banner11_3.jpg" alt="추천게임이미지11_3">
+                                                    <img src="images/banner_slider2/banner11_4.jpg" alt="추천게임이미지11_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 27,802개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>공포</span><span>1인칭</span><span>분위기 있는</span><span>고어</span>
+                                                </p>
+                                            </div>
+                                        </div> 
+
+                                        <div class="slider_small slider2_small_page3">
+                                            <div class="small_up" id="small_up8">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner12.jpg" alt="추천게임이미지12">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <div>
+                                                    <p class="small_cost1">-80%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;32,000</s>
+                                                        &#8361;6,400
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    GUILTY GEAR Xrd -REVELATOR-
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2016년 12월 14일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner12_1.jpg" alt="추천게임이미지12_1">
+                                                    <img src="images/banner_slider2/banner12_2.jpg" alt="추천게임이미지12_2">
+                                                    <img src="images/banner_slider2/banner12_3.jpg" alt="추천게임이미지12_3">
+                                                    <img src="images/banner_slider2/banner12_4.jpg" alt="추천게임이미지12_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 4,322개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>파이터</span><span>애니</span><span>2D</span><span>액션</span>
+                                                </p>
+                                            </div>
+                                        </div> 
+
+                                        <div class="slider_small slider2_small_page3">
+                                            <div class="small_up" id="small_up9">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner13.jpg" alt="추천게임이미지13">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <div>
+                                                    <p class="small_cost1">-75%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;75,000</s>
+                                                        &#8361;19,000
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    METAL GEAR SOLID V:THE PHANTOM PAIN
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2015년 9월 1일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner13_1.jpg" alt="추천게임이미지13_1">
+                                                    <img src="images/banner_slider2/banner13_2.jpg" alt="추천게임이미지13_2">
+                                                    <img src="images/banner_slider2/banner13_3.jpg" alt="추천게임이미지13_3">
+                                                    <img src="images/banner_slider2/banner13_4.jpg" alt="추천게임이미지13_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 41,312개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>잠입</span><span>오픈월드</span><span>액션</span><span>작전</span>
+                                                </p>
+                                            </div>
+                                        </div> 
+
+                                        <div class="slider_small slider2_small_page3">
+                                            <div class="small_up" id="small_up10">
+                                                <a href="#">
+                                                    <img src="images/banner_slider2/banner14.jpg" alt="추천게임이미지14">
+                                                </a>
+                                            </div>
+                                            <div class="small_down">
+                                                <div>
+                                                    <p class="small_cost1">-50%</p>
+                                                    <p class="small_cost2">
+                                                        <s>&#8361;39,400</s>
+                                                        &#8361;19,700
+                                                    </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="slider_float">
+                                                <h2>
+                                                    Sea of Thieves
+                                                </h2>
+                                                <p class="float_date">
+                                                    출시: 2020년 6월 3일
+                                                </p>
+                                                <div class="float_imgbox">
+                                                    <img src="images/banner_slider2/banner14_1.jpg" alt="추천게임이미지14_1">
+                                                    <img src="images/banner_slider2/banner14_2.jpg" alt="추천게임이미지14_2">
+                                                    <img src="images/banner_slider2/banner14_3.jpg" alt="추천게임이미지14_3">
+                                                    <img src="images/banner_slider2/banner14_4.jpg" alt="추천게임이미지14_4">
+                                                </div>
+                                                <p class="float_user">
+                                                    전반적 사용자 평가: <br>
+                                                    <span>매우 긍정적 </span> (평가 101,693개)
+                                                </p>
+                                                <p class="float_tag">
+                                                    사용자 태그: <span>어드벤처</span><span>멀티플레이어</span><span>오픈월드</span><span>액션</span>
+                                                </p>
+                                            </div>
+                                        </div> 
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="header_slider3">
+                <ul>
+                    <li>
+                        <h1 class="section_title">커뮤니티 추천</h1>
+                    </li>
+                    <li>
+                        <a href="#" class="more">더 보기</a>
+                    </li>
+                    <li>
+                        <div class="line"></div>
+                    </li>
+                    <li>
+                        <div id="slider3box">
+                            <div class="slider_btn1">
+                                <a href="#" class="left"><i class="fas fa-chevron-left"></i></a>
+                                <a href="#" class="right"><i class="fas fa-chevron-right"></i></a>
+                            </div>
+                            <div class="slider_btn2">
+                                <a href="#"></a>
+                                <a href="#"></a>
+                                <a href="#"></a>
+                            </div>
+                            <div class="video_slider">
+                                <div class="video_left">
+                                    <a href="#">
+                                        <img class="main_img" src="images/video/video1.jpg" alt="비디오 이미지1">
+                                        <p>&#8361;66,000</p>
+                                    </a>
+                                    <a href="#">
+                                        <video id="slider3_video1" loop="" muted src="images/video/video1.mp4"></video>
+                                        <img class="sub_img" src="images/video/video1_1.jpg" alt="비디오 작은 이미지1">
+                                    </a>
+                                </div>
+                                <div class="video_right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                                        elit. Mollitia voluptate expedita cum, accusantium 
+                                        facilis nemo, voluptatem unde voluptates inventore a 
+                                        ipsum laboriosam, earum incidunt ea odio itaque ad? 
+                                        Assumenda, necessitatibus!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing 
+                                        elit. Architecto modi dicta, consequatur sunt sit 
+                                        asperiores ipsa harum possimus dignissimos assumenda
+                                         quibusdam illum. Labore distinctio dolorum consequatur 
+                                         adipisci. Ullam, hic aperiam!
+                                    </p>
+                                    <a href="#">
+                                        <img src="images/video/user1.jpg" alt="유저이미지1">
+                                    </a>
+                                    <a href="#" class="video_userName">유저아이디</a>
+                                </div>
+
+                                <div class="slider_float">
+                                    <h2>
+                                        Red Dead Redemption 2
+                                    </h2>
+                                    <p class="float_date">
+                                        출시: 2019년 12월 6일
+                                    </p>
+                                    <div class="float_imgbox">
+                                        <img src="images/video/float1_1.jpg" alt="비디오 이미지1">
+                                        <img src="images/video/float1_2.jpg" alt="비디오 이미지2">
+                                        <img src="images/video/float1_3.jpg" alt="비디오 이미지3">
+                                        <img src="images/video/float1_4.jpg" alt="비디오 이미지4">
+                                    </div>
+                                    <p class="float_user">
+                                        전반적 사용자 평가: <br>
+                                        <span>매우 긍정적 </span> (평가 157,739개)
+                                    </p>
+                                    <p class="float_tag">
+                                        사용자 태그: <span>어드벤처</span><span>오픈월드</span><span>웨스턴</span><span>말</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="video_slider">
+                                <div class="video_left">
+                                    <a href="#">
+                                        <img class="main_img" src="images/video/video2.jpg" alt="비디오 이미지2">
+                                        <p>&#8361;22,000</p>
+                                    </a>
+                                    <a href="#">
+                                        <video id="slider3_video2" muted loop="" src="images/video/video2.mp4"></video>
+                                        <img class="sub_img" src="images/video/video2_1.jpg" alt="비디오 작은 이미지2">
+                                    </a>
+                                </div>
+                                <div class="video_right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Mollitia voluptate expedita 
+                                        cum, accusantium facilis nemo, voluptatem unde 
+                                        voluptates inventore a ipsum laboriosam, earum incidunt 
+                                        ea odio itaque ad? Assumenda, necessitatibus!
+                                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                                        elit. Rem vero commodi eum explicabo inventore illum, 
+                                        ratione molestiae nesciunt repudiandae doloribus perferendis 
+                                        repellat fuga, aliquam consequuntur quam, sunt sapiente 
+                                        provident magnam.
+                                    </p>
+                                    <a href="#">
+                                        <img src="images/video/user2.jpg" alt="유저이미지2">
+                                    </a>
+                                    <a href="#" class="video_userName">유저아이디</a>
+                                </div>
+
+                                <div class="slider_float">
+                                    <h2>
+                                        Tom Clancy's Rainbow Six® Siege
+                                    </h2>
+                                    <p class="float_date">
+                                        출시: 2015년 12월 2일
+                                    </p>
+                                    <div class="float_imgbox">
+                                        <img src="images/video/float2_1.jpg" alt="비디오 이미지1">
+                                        <img src="images/video/float2_2.jpg" alt="비디오 이미지2">
+                                        <img src="images/video/float2_3.jpg" alt="비디오 이미지3">
+                                        <img src="images/video/float2_4.jpg" alt="비디오 이미지4">
+                                    </div>
+                                    <p class="float_user">
+                                        전반적 사용자 평가: <br>
+                                        <span>매우 긍정적 </span> (평가 761,680개)
+                                    </p>
+                                    <p class="float_tag">
+                                        사용자 태그: <span>1인칭 슈팅</span><span>히어로 슈터</span><span>멀티플레이</span><span>작전</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="video_slider">
+                                <div class="video_left">
+                                    <a href="#">
+                                        <img class="main_img" src="images/video/video3.jpg" alt="비디오 이미지3">
+                                        <p>&#8361;31,000</p>
+                                    </a>
+                                    <a href="#">
+                                        <video id="slider3_video3" muted loop="" src="images/video/video3.mp4"></video>
+                                        <img class="sub_img" src="images/video/video3_1.jpg" alt="비디오 작은 이미지3">
+                                    </a>
+                                </div>
+                                <div class="video_right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                                        elit. Mollitia voluptate expedita cum, accusantium 
+                                        facilis nemo, voluptatem unde voluptates inventore 
+                                        a ipsum laboriosam, earum incidunt ea odio itaque 
+                                        ad? Assumenda, necessitatibus!
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing 
+                                        elit. Beatae cum quaerat deleniti facilis fuga! 
+                                        Dolore, quaerat. Saepe alias, assumenda doloremque 
+                                        iure et laudantium eius velit obcaecati totam 
+                                        temporibus reprehenderit consectetur?
+                                    </p>
+                                    <a href="#">
+                                        <img src="images/video/user3.jpg" alt="유저이미지3">
+                                    </a>
+                                    <a href="#" class="video_userName">유저아이디</a>
+                                </div>
+
+                                <div class="slider_float">
+                                    <h2>
+                                        Subnautica
+                                    </h2>
+                                    <p class="float_date">
+                                        출시: 2018년 1월 23일
+                                    </p>
+                                    <div class="float_imgbox">
+                                        <img src="images/video/float3_1.jpg" alt="비디오 이미지1">
+                                        <img src="images/video/float3_2.jpg" alt="비디오 이미지2">
+                                        <img src="images/video/float3_3.jpg" alt="비디오 이미지3">
+                                        <img src="images/video/float3_4.jpg" alt="비디오 이미지4">
+                                    </div>
+                                    <p class="float_user">
+                                        전반적 사용자 평가: <br>
+                                        <span>압도적으로 긍정적 </span> (평가 148,459개)
+                                    </p>
+                                    <p class="float_tag">
+                                        사용자 태그: <span>오픈 월드 생존 제작</span><span>생존</span><span>오픈월드</span><span>탐험</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="maincont">
+                <ul>
+                    <li>
+                        <h1 class="section_title">장르별 게임</h1>
+                    </li>
+                    <li>
+                        <a href="#" class="more">더 보기</a>
+                    </li>
+                    <li>
+                        <div class="line"></div>
+                    </li>
+                    <li>
+                        <div id="main_btnbox">
+                            <a href="#">레이싱</a>
+                            <a href="#">롤플레잉</a>
+                            <a href="#">시뮬레이션</a>
+                            <a href="#">액션</a>
+                            <a href="#">캐주얼</a>
+                        </div>
+                    </li>
+                    <li id="main_contbox">
+<!-- ---------------------------------------------1페이지------------------------------------------ -->
+                        <div class="main_contpage">
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont1.jpg" alt="메인콘텐츠 이미지1">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Forza Horizon 4</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>대체로 긍정적 </span> (평가 32,434개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>레이싱</span><span>오픈월드</span><span>운전</span><span>멀티플레이</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont2.jpg" alt="메인콘텐츠 이미지2">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>MotoGP™21</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>대체로 긍정적 </span> (평가 271개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>레이싱</span><span>시뮬레이션</span><span>스포츠</span><span>1인칭</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont3.jpg" alt="메인콘텐츠 이미지3">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Wreckfest</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 19,023개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>레이싱</span><span>자동차 시뮬레이션</span><span>파괴</span><span>시뮬레이션</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont4.jpg" alt="메인콘텐츠 이미지4">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>The Crew™ 2</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 36,991개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>레이싱</span><span>자동차 시뮬레이션</span><span>운전</span><span>오픈월드</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!-- -----------------------------------------2페이지------------------------------------------- -->
+                        <div class="main_contpage">
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont5.jpg" alt="메인콘텐츠 이미지1">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>The Elder Scrolls V: Skyrim</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 67,895개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>오픈월드</span><span>롤플레잉</span><span>어드벤처</span><span>싱글플레이</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont6.jpg" alt="메인콘텐츠 이미지6">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Monster Hunter: World</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 187,260개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>멀티플레이</span><span>협동</span><span>롤플레잉</span><span>오픈월드</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont7.jpg" alt="메인콘텐츠 이미지7">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>The Binding of Isaac: Rebirth</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>압도적으로 긍정적 </span> (평가 129,371개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>롤플레잉</span><span>로그라이크</span><span>액션</span><span>인디</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont8.jpg" alt="메인콘텐츠 이미지8">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Fallout 4</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 146,003개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>오픈월드</span><span>포스트아포칼립스</span><span>탐험</span><span>싱글 플레이어</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont9.jpg" alt="메인콘텐츠 이미지9">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>The Witcher® 3: Wild Hunt</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>압도적으로 긍정적 </span> (평가 462,011개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>롤플레잉</span><span>오픈월드</span><span>분위기 있는</span><span>풍부한 스토리</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont10.jpg" alt="메인콘텐츠 이미지10">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Cyberpunk 2077</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>대체로 긍정적 </span> (평가 362,277개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>사이버펑크</span><span>롤플레잉</span><span>오픈월드</span><span>공상과학</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont11.jpg" alt="메인콘텐츠 이미지11">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Mount & Blade II: Bannerlord</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 125,452개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>중세</span><span>전략</span><span>오픈월드</span><span>롤플레잉</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont12.jpg" alt="메인콘텐츠 이미지12">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>DARK SOULS™ III</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 167,583개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>소울 스타일</span><span>다크 판타지</span><span>어려움</span><span>롤플레잉</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!-- -----------------------------------------3페이지---------------------------------------- -->
+                        <div class="main_contpage">
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont13.jpg" alt="메인콘텐츠 이미지13">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Football Manager 2021</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 9,063개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>스포츠</span><span>시뮬레이션</span><span>경영</span><span>싱글플레이</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont14.jpg" alt="메인콘텐츠 이미지14">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Stardew Valley</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 296,109개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>농업시뮬레이션</span><span>생활 시뮬레이션</span><span>롤플레잉</span><span>농업</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont15.jpg" alt="메인콘텐츠 이미지15">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Sid Meier’s Civilization® VI</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 111,029개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>전략</span><span>턴제전략</span><span>역사</span><span>시뮬레이션</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont16.jpg" alt="메인콘텐츠 이미지16">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Cities: Skylines</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 117,324개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>도시건설</span><span>시뮬레이션</span><span>전략</span><span>경영</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont17.jpg" alt="메인콘텐츠 이미지17">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Farming Simulator 19</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 38,307개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>농업 시뮬레이션</span><span>멀티플레이</span><span>오픈월드</span><span>경영</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont18.jpg" alt="메인콘텐츠 이미지18">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Stellaris</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 74,730개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>우주</span><span>공상과학</span><span>시뮬레이션</span><span>전략</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont19.jpg" alt="메인콘텐츠 이미지19">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Papers, Please</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>압도적으로 긍정적 </span> (평가 37,664개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>인디</span><span>정치적인</span><span>시뮬레이션</span><span>싱글플레이</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont20.jpg" alt="메인콘텐츠 이미지20">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Dyson Sphere Program</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>압도적으로 긍정적 </span> (평가 35,936개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>우주</span><span>자동화</span><span>오픈월드</span><span>시뮬레이션</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!-- -------------------------------------4페이지----------------------------------------- -->
+                        <div class="main_contpage">
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont21.jpg" alt="메인콘텐츠 이미지21">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>DJMAX RESPECT V</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 11,684개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>캐주얼</span><span>리듬</span><span>액션</span><span>음악</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont22.jpg" alt="메인콘텐츠 이미지22">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Biohazard Village</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 14,168개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>생존 공포</span><span>1인칭</span><span>공포</span><span>액션</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont23.jpg" alt="메인콘텐츠 이미지23">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Grand Theft Auto V</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 975,363개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>오픈월드</span><span>액션</span><span>멀티플레이어</span><span>범죄</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont24.jpg" alt="메인콘텐츠 이미지24">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Apex 레전드™</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 214,178개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>무료</span><span>배틀로얄</span><span>슈팅</span><span>액션</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont25.jpg" alt="메인콘텐츠 이미지25">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Warframe</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 421,519개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>무료</span><span>약탈슈팅</span><span>색션</span><span>멀티플레이어</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont26.jpg" alt="메인콘텐츠 이미지26">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>It Takes Two</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>압도적으로 긍정적 </span> (평가 20,701개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>액션</span><span>어드벤처</span><span>분할 화면</span><span>퍼즐</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont27.jpg" alt="메인콘텐츠 이미지27">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Counter-Strike: Global Offensive</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 5,541,845개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>1인칭 슈팅</span><span>멀티플레이어</span><span>경쟁</span><span>액션</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont28.jpg" alt="메인콘텐츠 이미지28">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Dead by Daylight</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 332,548개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>공포</span><span>생존 공포</span><span>액션</span><span>멀티플레이어</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont29.jpg" alt="메인콘텐츠 이미지29">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>DOOM Eternal</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 105,430개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>액션</span><span>1인칭 슈팅</span><span>고어</span><span>액션</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!-- ----------------------------------------5페이지---------------------------------- -->
+                        <div class="main_contpage">
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont30.jpg" alt="메인콘텐츠 이미지30">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Pummel Party</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 21,947개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>멀티플레이어</span><span>유머</span><span>캐주얼</span><span>보드게임</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont31.jpg" alt="메인콘텐츠 이미지31">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Gang Beasts</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>대체로 긍정적 </span> (평가 23,692개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>유머</span><span>물리게임</span><span>캐주얼</span><span>멀티플레이어</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont32.jpg" alt="메인콘텐츠 이미지32">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Tabletop Simulator</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>압도적으로 긍정적 </span> (평가 26,338개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>테이블탑</span><span>보드게임</span><span>캐주얼</span><span>멀티플레이어</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont33.jpg" alt="메인콘텐츠 이미지33">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Overcooked! 2</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 20,274개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>멀티플레이어</span><span>캐주얼</span><span>협동</span><span>유머</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont34.jpg" alt="메인콘텐츠 이미지34">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Among Us</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 480,575개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>협동</span><span>캐주얼</span><span>소셜 디덕션</span><span>멀티플레이어</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_cont" id="main_cont_last">
+                                <div class="main_up">
+                                    <a href="#">
+                                        <img src="images/main_cont/main_cont35.jpg" alt="메인콘텐츠 이미지35">
+                                    </a>
+                                </div>
+                                <div class="main_down">
+                                    <h3>Fall Guys: Ultimate Knockout</h3>
+                                    <div class="main_option">
+                                        <p class="main_user">
+                                            전반적 사용자 평가: <br>
+                                            <span>매우 긍정적 </span> (평가 318,113개)
+                                        </p>
+                                        <p class="main_tag">
+                                            사용자 태그: <span>캐주얼</span><span>유머</span><span>배틀 로얄</span><span>멀티플레이어</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+<!-- ----------------------------------------------------------footer 시작------------------------------------------------ -->
+        <footer>
+            <div class="footer_line"></div>
+            <div id="footer_mid">
+                <div>
+                    <a href="#">
+                        <img src="images/logo2.png" alt="로고이미지2">
+                    </a>
+                </div>
+                <address>
+                    © 2021 Velve Corporation. All rights reserved. 모든 상표는 미국 및 기타 국가에서 해당하는 소유자의 재산입니다. <br>
+                    부가가치세 포함 <a href="#">개인정보 보호정책</a><a href="#">사용권</a><a href="#">Storm 이용 약관</a><a href="#">환불</a><a href="#">쿠키</a>
+                </address>
+                <div>
+                    <a href="#">
+                        <img src="images/logo.png" alt="로고이미지1">
+                    </a>
+                </div>
+            </div>
+            <div class="footer_line"></div>
+            <div>
+                <a href="#">Velve 정보</a>
+                <a href="#">Steamworks</a>
+                <a href="#">채용 정보</a>
+                <a href="#">Steam 배포</a>
+                <a href="#">기프트 카드</a>
+                <a href="#"><i class="fab fa-facebook-square"></i> Steam</a>
+                <a href="#"><i class="fab fa-twitter-square"></i> Steam</a>
+            </div>
+        </footer>
+<!-- --------------------------------asiede 시작------------------------------------ -->
+        <aside>
+            <ul>
+                <li id="aside_background"></li>
+                <li id="aside_box">
+                    <div id="aside_btn">
+                        <a href="#">
+                            <i class="fas fa-arrow-circle-right"></i> <br>
+                            M <br>
+                            E <br>
+                            N <br>
+                            U
+                        </a>
+                    </div>
+                    <div id="aside_title">
+                        <img src="images/logo3.png" alt="로고 이미지3">
+                        <h2>STORM</h2>
+                    </div>
+
+                    <div id="aside_cont">
+                        <div>
+                            <h3>추천 제품</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-users"></i> 친구가 추천</a></li>
+                                <li><a href="#"><i class="fas fa-broadcast-tower"></i> 큐레이터 추천</a></li>
+                                <li><a href="#"><i class="fas fa-tag"></i> 태그</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>맞춤 대기열</h3>
+                            <ul>
+                                <li><a href="#"><i class="far fa-square"></i> 추천 목록</a></li>
+                                <li><a href="#"><i class="far fa-plus-square"></i> 신규 출시 제품</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>카테고리 검색</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-chart-line"></i> 인기 제품</a></li>
+                                <li><a href="#"><i class="fas fa-plus-square"></i> 신규 출시</a></li>
+                                <li><a href="#"><i class="fas fa-history"></i> 발매 예정</a></li>
+                                <li><a href="#"><i class="fas fa-percentage"></i> 특별 할인</a></li>
+                                <li><a href="#"><i class="fas fa-vr-cardboard"></i> 가상 현실</a></li>
+                                <li><a href="#"><i class="fas fa-gamepad"></i> 컨트롤러 호환</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>장르로 검색</h3>
+                            <ul>
+                                <li><a href="#">무료</a></li>
+                                <li><a href="#">앞서 해보기</a></li>
+                                <li><a href="#">대규모 멀티플레이</a></li>
+                                <li><a href="#">레이싱</a></li>
+                                <li><a href="#">롤플레잉</a></li>
+                                <li><a href="#">스포츠</a></li>
+                                <li><a href="#">시뮬레이션</a></li>
+                                <li><a href="#">액션</a></li>
+                                <li><a href="#">어드벤처</a></li>
+                                <li><a href="#">인디</a></li>
+                                <li><a href="#">전략</a></li>
+                                <li><a href="#">캐주얼</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+    </div>
+</body>
+</html>
